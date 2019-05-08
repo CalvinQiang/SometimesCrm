@@ -1,6 +1,6 @@
 package com.sometimes.crm.dao.impl;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.sometimes.crm.dao.UserDao;
 import com.sometimes.crm.domain.User;
