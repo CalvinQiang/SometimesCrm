@@ -1,5 +1,6 @@
 package com.sometimes.crm.web.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.sometimes.crm.domain.User;
@@ -27,6 +28,17 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	public String regist() {
 		userService.register(user);
 		return LOGIN;
+	}
+	
+	public String login() {
+		User existUser = userService.login(user);
+		if(existUser == null) {
+			this.addActionError("用户名或密码错误");
+			return LOGIN;
+		}else {
+			ActionContext.getContext().getSession().put("existUser", existUser);
+			return SUCCESS;
+		}
 	}
 
 }

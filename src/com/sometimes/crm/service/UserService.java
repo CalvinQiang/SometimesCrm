@@ -16,4 +16,6 @@ import com.sometimes.crm.domain.User;
 @Transactional
 public interface UserService {
 	public void register(User user);
+
+	public User login(User user);
 }

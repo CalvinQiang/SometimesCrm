@@ -20,4 +20,11 @@ public class UserServiceImpl implements UserService {
 		userDao.save(user);
 	}
 
+	@Override
+	public User login(User user) {
+		user.setUser_password(MD5Utils.md5(user.getUser_password()));
+		User existsUser = userDao.login(user);
+		return existsUser;
+	}
+
 }
