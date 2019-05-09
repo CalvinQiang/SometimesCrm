@@ -1,5 +1,11 @@
 package com.sometimes.crm.domain;
+
 /**
+ * 系统用户
+ * @author ConciseLiu
+ * @date 2019年5月9日 上午9:53:34
+ * @email lq8841149@163.com
+ * 
  *CREATE TABLE `sys_user` (
   `user_id` bigint(32) NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `user_code` varchar(32) NOT NULL COMMENT '用户账号',
@@ -45,5 +51,6 @@ public class User {
 	public void setUser_state(String user_state) {
 		this.user_state = user_state;
 	}
+
 	
 }

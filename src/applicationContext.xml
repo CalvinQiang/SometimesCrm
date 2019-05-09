@@ -38,23 +38,53 @@
 
 		<property name="mappingResources">
 			<list>
-				<value>com/sometimes/crm/domain/User.hbm.xml</value>
+				<value>com/sometimes/crm/domain/hbm/User.hbm.xml</value>
+				<value>com/sometimes/crm/domain/hbm/Customer.hbm.xml</value>
+				<value>com/sometimes/crm/domain/hbm/LinkMan.hbm.xml</value>
+				<value>com/sometimes/crm/domain/hbm/BaseDict.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
-
+	<!-- Configure Action -->
 	<bean id="userAction"
 		class="com.sometimes.crm.web.action.UserAction" scope="prototype">
-		<property name="userService" ref="userService"></property>
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean id="baseDictAction"
+		class="com.sometimes.crm.web.action.BaseDictAction" scope="prototype">
+		<property name="baseDictService" ref="baseDictService" />
+	</bean>
+	<bean id="customerAction"
+		class="com.sometimes.crm.web.action.CustomerAction" scope="prototype">
+		<property name="customerService" ref="customerService" />
 	</bean>
 
+
+	<!-- Configure Service -->
 	<bean id="userService"
 		class="com.sometimes.crm.service.impl.UserServiceImpl">
-		<property name="userDao" ref="userDao"></property>
+		<property name="userDao" ref="userDao" />
+	</bean>
+	<bean id="baseDictService"
+		class="com.sometimes.crm.service.impl.BaseDictServiceImpl">
+		<property name="baseDictDao" ref="baseDictDao" />
+	</bean>
+	<bean id="customerService"
+		class="com.sometimes.crm.service.impl.CustomerServiceImpl">
+		<property name="customerDao" ref="customerDao" />
 	</bean>
 
+	<!-- Configure Dao -->
 	<bean id="userDao" class="com.sometimes.crm.dao.impl.UserDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="baseDictDao"
+		class="com.sometimes.crm.dao.impl.BaseDictDoaImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+		<bean id="customerDao"
+		class="com.sometimes.crm.dao.impl.CustomerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- 配置事务管理器 -->

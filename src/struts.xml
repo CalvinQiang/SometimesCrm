@@ -4,14 +4,25 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<!-- 配置Struts2的常量 -->
-	<constant name="struts.action.extension" value="action"/>
-	
-	<package name="sometimes_crm" extends="struts-default" namespace="/">
-	<global-results>
-		<result name="login">/login.jsp</result>
-	</global-results>
+	<constant name="struts.action.extension" value="action" />
+
+	<package name="sometimes_crm" extends="struts-default"
+		namespace="/">
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+
 		<action name="user_*" class="userAction" method="{1}">
 			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+
+		<action name="customer_*" class="customerAction" method="{1}">
+			<result name="saveUI" type="redirect">/jsp/customer/add.jsp</result>
+			<result name="findAll">/jsp/customer/list.jsp</result>
+		</action>
+
+		<action name="baseDict_*" class="baseDictAction" method="{1}">
+			
 		</action>
 	</package>
 </struts>

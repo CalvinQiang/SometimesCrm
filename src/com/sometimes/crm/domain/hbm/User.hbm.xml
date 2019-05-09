@@ -8,9 +8,9 @@
 			<generator class="native"/>
 		</id>
 		
-		<property name="user_code" column="user_code"/>
-		<property name="user_name" column="user_name"/>
-		<property name="user_password" column="user_password"/>
-		<property name="user_state" column="user_state"/>
+		<property name="user_code" column="user_code" length="32"/>
+		<property name="user_name" column="user_name" length="64"/>
+		<property name="user_password" column="user_password" length="32"/>
+		<property name="user_state" column="user_state" length="1"/>
 	</class>
 </hibernate-mapping>
