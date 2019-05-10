@@ -1,15 +1,13 @@
 # Eclipse项目向IDEA项目迁移
 
-- 首先准备材料
-
-1.迁移git项目：https://github.com/ConciseLiu/SometimesCrm
-
+- 首先准备材料,迁移git项目：https://github.com/ConciseLiu/SometimesCrm
 
 1.下载crm项目至本地
 ```bash
 git@github.com:ConciseLiu/SometimesCrm.git
 ```
 - 过程如图所示：
+
 ![下载项目](./img/1_clone_project.png)
 
 2.在idea中导入下载的项目
@@ -126,8 +124,15 @@ git@github.com:ConciseLiu/SometimesCrm.git
 
 ![导入项目](./img/4_config_tomcat_7.png)
 
-5. 至此，Eclipse项目向Idea项目工作已完成，开始我们开发之路吧
+5.至此，Eclipse项目向Idea项目工作已完成，开始我们开发之路吧
 
+- 参考资料
+
+    1.[Eclipse java web项目 ，导入IntelliJ IDEA 完整操作！](https://blog.csdn.net/ssh159/article/details/71305706)
+    
+    2.[IntelliJ IDEA 出现" java: 程序包javax.servlet不存在、 java: 程序包javax.servlet.annotation"等错误](https://blog.csdn.net/wust_lh/article/details/73469789)
+    
+    3.[idea导入eclipse项目](https://zhuanlan.zhihu.com/p/28749214)
 
 
 
