@@ -5,7 +5,7 @@ Java EE practice project - crm system
 [Eclipse项目向IDEA项目迁移](./doc/0_%20MigrationProject/0_migrate.md)的方法,该项目作为实验性项目，不会更改使用的开发框架，
 后续的实验性项目会使用更为现代的框架，用以对比各个开发框架的优缺点。
 - Java 版本：jdk8.0
-- 开发框架: Spring + Hibernate + Struct2
+- 开发框架: Spring + Hibernate + Struts2
 - 数据库：Mysql
 
 ### 1.模块设计
