@@ -26,7 +26,7 @@
 </HEAD>
 <BODY>
 	<FORM id="customerForm" name="customerForm"
-		action="${pageContext.request.contextPath }/customerServlet?method=list"
+		action="${pageContext.request.contextPath }/customer_findAll.action"
 		method=post>
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
@@ -100,7 +100,7 @@
 													<TR
 														style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 														<TD><s:property value="cust_name" /></TD>
-														<TD><s:property value="baseDictLevel.dict_item_name" /></TD>
+														<TD><s:property value="baseDictLevel.dict_type_name" /></TD>
 														<TD><s:property value="baseDictSource.dict_item_name" /></TD>
 														<TD><s:property
 																value="baseDictIndustry.dict_item_name" /></TD>
@@ -122,17 +122,38 @@
 									<TD><SPAN id=pagelink>
 											<DIV
 												style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right">
-												共[<B>${total}</B>]条记录,[<B>${totalPage}</B>]页 ,每页显示 <select
-													name="pageSize">
-
+												共[<B><s:property value="totalCount" /></B>]条记录,[<B><s:property
+														value="currPage" /></B>]页 ,每页显示 <select name="pageSize"
+													onchange="to_change()">
+													<option value="3" <s:if test="pageSize==3">selected</s:if>>3</option>
 													<option value="15"
-														<c:if test="${pageSize==1 }">selected</c:if>>1</option>
+														<s:if test="pageSize==15">selected</s:if>>15</option>
 													<option value="30"
-														<c:if test="${pageSize==30 }">selected</c:if>>30</option>
-												</select> 条 [<A href="javascript:to_page(${page-1})">前一页</A>] <B>${page}</B>
-												[<A href="javascript:to_page(${page+1})">后一页</A>] 到 <input
-													type="text" size="3" id="page" name="page" /> 页 <input
-													type="button" value="Go" onclick="to_page()" />
+														<s:if test="pageSize==30">selected</s:if>>30</option>
+												</select> 条
+												<s:if test="currPage>1">
+												[<A href="javascript:to_page(0)">首页</A>]
+												[<A
+														href="javascript:to_page(<s:property value="currPage-1"/>)">前一页</A>]
+												</s:if>
+												<B> <s:iterator var="i" begin="1" end="totalPage">
+														<s:if test="#i == currPage">
+															<s:property value="#i" />
+														</s:if>
+														<s:else>
+															<a href="javascript:to_page(<s:property value="#i"/>)"><s:property
+																	value="#i" /></a>
+														</s:else>
+													</s:iterator>
+												</B>
+												<s:if test="currPage<=1">
+												[<A
+														href="javascript:to_page(<s:property value="currPage+1"/>)">后一页</A>] 
+												[<A
+														href="javascript:to_page(<s:property value="totalPage"/>)">尾页</A>]
+												</s:if>
+												到 <input type="text" size="3" id="page" name="currPage" />
+												页 <input type="button" value="Go" onclick="to_page()" />
 											</DIV>
 									</SPAN></TD>
 								</TR>

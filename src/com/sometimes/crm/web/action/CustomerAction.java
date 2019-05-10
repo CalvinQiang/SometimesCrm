@@ -59,7 +59,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 
 	public String save() {
 		customerService.save(customer);
-		return NONE;
+		return "saveSuccess";
 	}
 
 }
