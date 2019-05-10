@@ -2,6 +2,7 @@ package com.sometimes.crm.web.action;
 
 import org.hibernate.criterion.DetachedCriteria;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.sometimes.crm.domain.Customer;
@@ -48,6 +49,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	public String findAll() {
 		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Customer.class);
 		PageBean<Customer> pageBean = customerService.findByPage(detachedCriteria, currPage, pageSize);
+		ActionContext.getContext().getValueStack().push(pageBean);
 		return "findAll";
 	}
 
